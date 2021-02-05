@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      annotated_facade_generator|annotated_facade:
+        enabled: true
+
+builders:
+  annotated_facade:
+    target: ":annotated_facade_generator"
+    import: "package:annotated_facade_generator/builder.dart"
+    builder_factories: ["generate"]
+    build_extensions: {".dart": [".annotated_facade.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
