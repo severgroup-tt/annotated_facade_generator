@@ -26,7 +26,7 @@ class AnnotatedFacadeGenerator extends GeneratorForAnnotation<Facade> {
   String _generateMixin(ClassElement delegate, ClassElement facade) => """
     mixin _\$${facade.displayName} implements ${delegate.displayName} {
       ${delegate.displayName} get $_delegatePropertyName;
-      FutureOr<T> $_wrapMethodName<T>(FutureOr<T> Function() source);
+      Future<T> $_wrapMethodName<T>(Future<T> Function() source);
       ${_generateDelegatedMethods(delegate)}
     }
   """;
