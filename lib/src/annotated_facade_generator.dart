@@ -14,7 +14,7 @@ class AnnotatedFacadeGenerator extends GeneratorForAnnotation<Facade> {
   FutureOr<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) {
     final delegateType = annotation.read('type').typeValue;
 
-    assert(delegateType.element.kind == ElementKind.CLASS);
+    assert(delegateType.element?.kind == ElementKind.CLASS);
     assert(element.kind == ElementKind.CLASS);
 
     final delegateElement = delegateType.element as ClassElement;
